@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: isoltest
+spec:
+   containers:
+      - name: app-a
+        image: kshino/appa
+
+      - name: app-b
+        image: kshino/appb
+
+      - name: app-c
+        image: kshino/appc
