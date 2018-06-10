@@ -20,5 +20,5 @@
 
 ```
 create -f isoltest.yml
-delete pod isoltest
+delete -f isoltest.yml
 ```
