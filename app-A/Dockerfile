@@ -1,7 +1,7 @@
 from ubuntu:16.04
 
 RUN apt update && apt upgrade -y
-RUN apt install -y iperf3 stress-ng dstat inetutils-ping iproute2
+RUN apt install -y vim iperf3 stress-ng dstat inetutils-ping iproute2
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
@@ -12,6 +12,7 @@ RUN apt-get -y update
 RUN apt-get install -y --force-yes td-agent
 
 ADD run.sh /run.sh
+COPY config/td-agent.conf /etc/td-agent/td-agent.conf
 
 CMD /run.sh
 
