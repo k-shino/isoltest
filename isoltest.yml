@@ -61,7 +61,7 @@ spec:
       - name: esearch
         image: kshino/elasticsearch
         ports:
-           -  containerPort: 5201
+           -  containerPort: 9200
 ---
 apiVersion: v1
 kind: Pod
@@ -74,7 +74,20 @@ spec:
       - name: fluentd
         image: kshino/fluentd
         ports:
-           -  containerPort: 5201
+           -  containerPort: 24224
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: isoltest-kibana
+   labels:
+      app: kibana
+spec:
+   containers:
+      - name: kibana
+        image: kshino/kibana
+        ports:
+           -  containerPort: 5601
 ---
 apiVersion: v1
 kind: Service

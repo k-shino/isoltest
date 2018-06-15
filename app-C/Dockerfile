@@ -1,4 +1,4 @@
-from ubuntu
+from ubuntu:16.04
 
 RUN apt update && apt upgrade -y
 RUN apt install -y iperf3 stress-ng dstat inetutils-ping iproute2
