@@ -7,7 +7,7 @@ metadata:
 spec:
    containers:
       - name: app-a
-        image: kshino/appa
+        image: localhost:5000/appa
         ports:
            -  containerPort: 5201
 ---
@@ -20,7 +20,7 @@ metadata:
 spec:
    containers:
       - name: app-b
-        image: kshino/appb
+        image: localhost:5000/appb
         ports:
            -  containerPort: 5201
 ---
@@ -33,7 +33,7 @@ metadata:
 spec:
    containers:
       - name: app-c
-        image: kshino/appc
+        image: localhost:5000/appc
         ports:
            -  containerPort: 5201
 ---
@@ -46,7 +46,7 @@ metadata:
 spec:
    containers:
       - name: app-c
-        image: kshino/appc
+        image: localhost:5000/appc
         ports:
            -  containerPort: 5201
 ---
@@ -59,7 +59,7 @@ metadata:
 spec:
    containers:
       - name: esearch
-        image: kshino/elasticsearch
+        image: localhost:5000/elasticsearch
         ports:
            -  containerPort: 9200
 ---
@@ -72,7 +72,7 @@ metadata:
 spec:
    containers:
       - name: fluentd
-        image: kshino/fluentd
+        image: localhost:5000/fluentd
         ports:
            -  containerPort: 24224
 ---
@@ -85,7 +85,7 @@ metadata:
 spec:
    containers:
       - name: kibana
-        image: kshino/kibana
+        image: localhost:5000/kibana
         ports:
            -  containerPort: 5601
 ---

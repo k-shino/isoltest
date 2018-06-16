@@ -1,51 +1,27 @@
 version: "3.3"
 
 services:
-  nginx:
-    build: ./nginx
-    volumes:
-      - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/log:/var/log/nginx
-      - ./nginx/html:/usr/share/nginx/html
-    ports:
-      - 8090:80
-    links:
-      - fluentd
+  app-A:
+    build: ./app-A
+    image: localhost:5000/appa
+
+  app-B:
+    build: ./app-B
+    image: localhost:5000/appb
+
+  app-C:
+    build: ./app-C
+    image: localhost:5000/appc
 
   fluentd:
     build: ./fluentd
-    volumes:
-      - ./fluentd/config:/fluentd/etc
-      - ./nginx/log:/var/log/nginx
-    links:
-      - elasticsearch
-    ports:
-      - "24224:24224"
-    depends_on:
-      - elasticsearch
+    image: localhost:5000/fluentd
 
   elasticsearch:
-    build: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ports:
-      - "9200:9200"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
+    build: ./elasticsearch
+    image: localhost:5000/elasticsearch
 
   kibana:
-    build: kibana
-    ports:
-      - "5601:5601"
-    links:
-      - elasticsearch:elasticsearch
-
-volumes:
-  esdata:
-    driver: local
+    build: ./kibana
+    image: localhost:5000/kibana
 
