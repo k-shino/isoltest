@@ -18,6 +18,8 @@
 
 ## How to use
 
+### deploty a system
+
 ```
 cd /Users/sinohara/Documents/8.Codes/docker-registry/examples/auth-disabled
 docker-compose up -d
@@ -26,4 +28,11 @@ cd /Users/sinohara/Documents/8.Codes/isoltest
 
 kubectl create -f isoltest.yml
 kubectl delete -f isoltest.yml
+```
+
+### build apps
+
+```
+docker-compose build
+docker-compose up
 ```
