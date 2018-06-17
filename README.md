@@ -18,16 +18,17 @@
 
 ## How to use
 
-### deploty a system
+### Prerequisites
 
+* docker private registry runs at localhost:5000
+
+If you doesn't have it, execute following command (on Mac OS X)
 ```
-cd /Users/sinohara/Documents/8.Codes/docker-registry/examples/auth-disabled
+curl -Ls https://github.com/mkuchin/docker-registry-web/releases/download/v0.1.2/examples.tar.gz | tar -xzv
+mv examples/auth-disabled/ ./docker-registry
+cd docker-registry/
+docker-compose up
 docker-compose up -d
-
-cd /Users/sinohara/Documents/8.Codes/isoltest
-
-kubectl create -f isoltest.yml
-kubectl delete -f isoltest.yml
 ```
 
 ### build apps
@@ -35,4 +36,11 @@ kubectl delete -f isoltest.yml
 ```
 docker-compose build
 docker-compose up
+```
+
+### deploty a system
+
+```
+kubectl create -f isoltest.yml
+kubectl delete -f isoltest.yml
 ```
