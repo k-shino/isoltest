@@ -27,7 +27,6 @@ If you doesn't have it, execute following command (on Mac OS X)
 curl -Ls https://github.com/mkuchin/docker-registry-web/releases/download/v0.1.2/examples.tar.gz | tar -xzv
 mv examples/auth-disabled/ ./docker-registry
 cd docker-registry/
-docker-compose up
 docker-compose up -d
 ```
 
