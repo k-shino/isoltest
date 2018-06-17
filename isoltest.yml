@@ -11,18 +11,18 @@ spec:
         ports:
            -  containerPort: 5201
 ---
-apiVersion: v1
-kind: Pod
-metadata:
-   name: isoltest-app-b
-   labels:
-      app: app-b
-spec:
-   containers:
-      - name: app-b
-        image: localhost:5000/appb
-        ports:
-           -  containerPort: 5201
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#   name: isoltest-app-b
+#   labels:
+#      app: app-b
+#spec:
+#   containers:
+#      - name: app-b
+#        image: localhost:5000/appb
+#        ports:
+#           -  containerPort: 5201
 ---
 apiVersion: v1
 kind: Pod
@@ -37,31 +37,31 @@ spec:
         ports:
            -  containerPort: 5201
 ---
-apiVersion: v1
-kind: Pod
-metadata:
-   name: isoltest-app-c2
-   labels:
-      app: app-c2
-spec:
-   containers:
-      - name: app-c
-        image: localhost:5000/appc
-        ports:
-           -  containerPort: 5201
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#   name: isoltest-app-c2
+#   labels:
+#      app: app-c2
+#spec:
+#   containers:
+#      - name: app-c
+#        image: localhost:5000/appc
+#        ports:
+#           -  containerPort: 5201
 ---
-apiVersion: v1
-kind: Pod
-metadata:
-   name: isoltest-esearch
-   labels:
-      app: esearch
-spec:
-   containers:
-      - name: esearch
-        image: localhost:5000/elasticsearch
-        ports:
-           -  containerPort: 9200
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#   name: isoltest-esearch
+#   labels:
+#      app: esearch
+#spec:
+#   containers:
+#      - name: esearch
+#        image: localhost:5000/elasticsearch
+#        ports:
+#           -  containerPort: 9200
 ---
 apiVersion: v1
 kind: Pod
@@ -76,18 +76,18 @@ spec:
         ports:
            -  containerPort: 24224
 ---
-apiVersion: v1
-kind: Pod
-metadata:
-   name: isoltest-kibana
-   labels:
-      app: kibana
-spec:
-   containers:
-      - name: kibana
-        image: localhost:5000/kibana
-        ports:
-           -  containerPort: 5601
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#   name: isoltest-kibana
+#   labels:
+#      app: kibana
+#spec:
+#   containers:
+#      - name: kibana
+#        image: localhost:5000/kibana
+#        ports:
+#           -  containerPort: 5601
 ---
 apiVersion: v1
 kind: Service

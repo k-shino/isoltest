@@ -34,7 +34,7 @@ docker-compose up -d
 
 ```
 docker-compose build
-docker-compose up
+docker-compose push
 ```
 
 ### deploty a system

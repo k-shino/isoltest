@@ -14,5 +14,7 @@ RUN apt-get install -y --force-yes td-agent
 ADD run.sh /run.sh
 COPY config/td-agent.conf /etc/td-agent/td-agent.conf
 
+#ENTRYPOINT ["/etc/init.d/supervisord", "start"]
+
 CMD /run.sh
 
