@@ -7,6 +7,7 @@ sed -i -e "s/TARGETHOST/$SVC_FLUENTD_PORT_24224_TCP_ADDR/" /etc/td-agent/td-agen
 mkdir /home/log
 chmod 777 /home/log
 
+sleep 10
 service td-agent start
 
 
