@@ -2,7 +2,7 @@
 
 TIME=600
 
-sed -i -e "s/TARGETHOST/$SVC_FLUENTD_PORT_24224_TCP_ADDR/" /etc/td-agent/td-agent.conf
+sed -i -e "s/TARGETHOST/$SVC_ESEARCH_PORT_9200_TCP_ADDR/" /etc/td-agent/td-agent.conf
 
 mkdir /home/log
 chmod 777 /home/log
