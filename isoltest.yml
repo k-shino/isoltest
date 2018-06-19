@@ -56,12 +56,17 @@ metadata:
    name: isoltest-esearch
    labels:
       app: esearch
+      srv: kibana
 spec:
    containers:
       - name: esearch
         image: localhost:5000/elasticsearch
         ports:
            -  containerPort: 9200
+      - name: kibana
+        image: localhost:5000/kibana
+        ports:
+           -  containerPort: 5601
 ---
 apiVersion: v1
 kind: Pod
@@ -75,19 +80,6 @@ spec:
         image: localhost:5000/fluentd
         ports:
            -  containerPort: 24224
----
-apiVersion: v1
-kind: Pod
-metadata:
-   name: isoltest-kibana
-   labels:
-      app: kibana
-spec:
-   containers:
-      - name: kibana
-        image: localhost:5000/kibana
-        ports:
-           -  containerPort: 5601
 ---
 apiVersion: v1
 kind: Service
@@ -168,7 +160,8 @@ metadata:
    name: svc-kibana
 spec:
    selector:
-      app: kibana
+      srv: kibana
+   type: LoadBalancer
    ports:
    - protocol: TCP
      port: 5601
