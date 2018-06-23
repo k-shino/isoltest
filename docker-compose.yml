@@ -13,10 +13,6 @@ services:
     build: ./app-C
     image: localhost:5000/appc
 
-  fluentd:
-    build: ./fluentd
-    image: localhost:5000/fluentd
-
   elasticsearch:
     build: ./elasticsearch
     image: localhost:5000/elasticsearch
