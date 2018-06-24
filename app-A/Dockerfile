@@ -16,6 +16,8 @@ RUN /opt/td-agent/usr/sbin/td-agent-gem install fluent-plugin-rewrite-tag-filter
 
 ADD config/run.sh /run.sh
 ADD config/curl.json /curl.json
+ADD config/td-agent.sh /td-agent.sh
+
 COPY config/td-agent.conf /etc/td-agent/td-agent.conf
 
 #ENTRYPOINT ["/etc/init.d/supervisord", "start"]
