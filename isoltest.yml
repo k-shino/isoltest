@@ -57,6 +57,7 @@ metadata:
    labels:
       app: esearch
       srv: kibana
+      graph: grafana
 spec:
    containers:
       - name: esearch
@@ -65,6 +66,23 @@ spec:
            -  containerPort: 9200
       - name: kibana
         image: localhost:5000/kibana
+        ports:
+           -  containerPort: 5601
+      - name: grafana
+        image: localhost:5000/grafana
+        ports:
+           -  containerPort: 3000
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: isoltest-sense
+   labels:
+      app: sense
+spec:
+   containers:
+      - name: sense
+        image: s12v/sense
         ports:
            -  containerPort: 5601
 ---
@@ -124,6 +142,7 @@ metadata:
 spec:
    selector:
       app: esearch
+   type: LoadBalancer
    ports:
    - protocol: TCP
      port: 9200
@@ -141,3 +160,30 @@ spec:
    - protocol: TCP
      port: 5601
      targetPort: 5601
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: svc-grafana
+spec:
+   selector:
+      graph: grafana
+   type: LoadBalancer
+   ports:
+   - protocol: TCP
+     port: 3000
+     targetPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: svc-sense
+spec:
+   selector:
+      app: sense 
+   type: LoadBalancer
+   ports:
+   - protocol: TCP
+     port: 5602
+     targetPort: 5601
+

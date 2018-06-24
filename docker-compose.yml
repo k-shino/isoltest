@@ -20,4 +20,6 @@ services:
   kibana:
     build: ./kibana
     image: localhost:5000/kibana
-
+  grafana:
+    build: ./grafana
+    image: localhost:5000/grafana

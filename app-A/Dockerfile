@@ -11,8 +11,11 @@ RUN apt update && \
 
 RUN /opt/td-agent/usr/sbin/td-agent-gem install fluent-plugin-event-tail
 RUN /opt/td-agent/usr/sbin/td-agent-gem install fluent-plugin-parser
+RUN /opt/td-agent/usr/sbin/td-agent-gem install fluent-plugin-dstat
+RUN /opt/td-agent/usr/sbin/td-agent-gem install fluent-plugin-rewrite-tag-filter
 
-ADD run.sh /run.sh
+ADD config/run.sh /run.sh
+ADD config/curl.json /curl.json
 COPY config/td-agent.conf /etc/td-agent/td-agent.conf
 
 #ENTRYPOINT ["/etc/init.d/supervisord", "start"]

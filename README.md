@@ -43,3 +43,11 @@ docker-compose push
 kubectl create -f isoltest.yml
 kubectl delete -f isoltest.yml
 ```
+
+### use Sense
+
+go to http://localhost:5602/app/sense
+
+### use grafana
+
+go to http://localhost:3000
